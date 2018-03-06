@@ -1,9 +1,12 @@
 import {Action} from '@ngrx/store';
+
 import { TodoActionTypes } from './todo-actions-constants';
+import { ITodo } from '../interfaces/index';
 
 export class AddTodoAction implements Action {
     readonly type = TodoActionTypes.ADD_TODO;
-    constructor(public payload: string) { }
+
+    constructor(public payload: ITodo) { }
 }
 
 export class SendErrorAction implements Action {
@@ -13,12 +16,12 @@ export class SendErrorAction implements Action {
 
 export class ClearErrorsAction implements Action {
     readonly type = TodoActionTypes.CLEAR_ERROR;
-    constructor(public payload: {}) { }
+    constructor() { }
 }
 
 export class RemoveTodoAction implements Action {
     readonly type = TodoActionTypes.REMOVE_TODO;
-    constructor(public payload: any) { }
+    constructor(public payload: number) { }
 }
 
 export class SetTodoCompletedAction implements Action {
@@ -38,22 +41,18 @@ export class UpdateTodoLabelAction implements Action {
 
 export class ClearCompletedAction implements Action {
     readonly type = TodoActionTypes.CLEAR_COMPLETED;
-    constructor(public payload: {}) { }
 }
 
 export class ShowAllAction implements Action {
     readonly type = TodoActionTypes.SHOW_ALL;
-    constructor(public payload: {}) { }
 }
 
 export class ShowActiveAction implements Action {
     readonly type = TodoActionTypes.SHOW_ACTIVE;
-    constructor(public payload: {}) { }
 }
 
 export class ShowCompletedAction implements Action {
     readonly type = TodoActionTypes.SHOW_COMPLETED;
-    constructor(public payload: {}) { }
 }
 
 export type TodoAction
