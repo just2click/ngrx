@@ -5,7 +5,7 @@ import { ITodo } from '../../interfaces';
 
 @Injectable()
 export class TodoActions {
-    public addTodo (payload: ITodo) {
+    public addTodo (payload: string) {
         return new todos.AddTodoAction(payload);
     }
 
@@ -13,8 +13,8 @@ export class TodoActions {
         return new todos.SendErrorAction(payload);
     }
 
-    public clearErrors () {
-        return new todos.ClearErrorsAction();
+    public clearErrors (payload: null) {
+        return new todos.ClearErrorsAction(payload);
     }
 
     public removeTodo (payload: number) {
@@ -29,19 +29,19 @@ export class TodoActions {
         return new todos.SetAllTodoCompletedAction(payload);
     }
 
-    public clearCompleted () {
-        return new todos.ClearCompletedAction();
+    public clearCompleted (payload: null) {
+        return new todos.ClearCompletedAction(payload);
     }
 
-    public showAll () {
-        return new todos.ShowAllAction();
+    public showAll (payload: null) {
+        return new todos.ShowAllAction(payload);
     }
 
-    public showActive () {
-        return new todos.ShowActiveAction();
+    public showActive (payload: null) {
+        return new todos.ShowActiveAction(payload);
     }
 
-    public showCompleted () {
-        return new todos.ShowCompletedAction();
+    public showCompleted (payload: null) {
+        return new todos.ShowCompletedAction(payload);
     }
 }
